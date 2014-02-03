@@ -73,15 +73,15 @@ TARGET_QCOM_MEDIA_VARIANT := caf-new
 # Kernel handles input boosting
 TARGET_POWERHAL_NO_TOUCH_BOOST := true
 
+# Hardware tunables framework
+BOARD_HARDWARE_CLASS := device/motorola/msm8226-common/cmhw/
+
 # Assert
 TARGET_OTA_ASSERT_DEVICE := xt1031,xt1032,xt1033,xt1034,falcon_umts,falcon_umtsds,falcon_cdma,falcon_retuaws
 
 # Recovery
 TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/etc/fstab.qcom
+TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
-
-# TWRP
-TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
-#TW_BRIGHTNESS_PATH := /sys/class/backlight/lcd-backlight/brightness
-#TW_MAX_BRIGHTNESS := 126
+BOARD_RECOVERY_SWIPE := true
