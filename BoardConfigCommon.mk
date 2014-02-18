@@ -28,6 +28,7 @@ TARGET_BOARD_PLATFORM_GPU := qcom-adreno305
 TARGET_BOARD_PLATFORM := msm8226
 TARGET_BOOTLOADER_BOARD_NAME := MSM8226
 TARGET_CPU_VARIANT := krait
+TARGET_USE_KINGFISHER_OPTIMIZATION := true
 
 -include device/motorola/qcom-common/BoardConfigCommon.mk
 
@@ -70,14 +71,14 @@ TARGET_QCOM_DISPLAY_VARIANT := caf-new
 
 TARGET_QCOM_MEDIA_VARIANT := caf-new
 
-# Kernel handles input boosting
-TARGET_POWERHAL_NO_TOUCH_BOOST := true
+# Use stock power hal
+TARGET_USES_CM_POWERHAL :=
 
 # Hardware tunables framework
 BOARD_HARDWARE_CLASS := device/motorola/msm8226-common/cmhw/
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := xt1031,xt1032,xt1033,xt1034,falcon_umts,falcon_umtsds,falcon_cdma,falcon_retuaws
+TARGET_OTA_ASSERT_DEVICE := xt1031,xt1032,xt1033,xt1034,falcon_umts,falcon_umtsds,falcon_cdma,falcon_retuaws,falcon
 
 # Recovery
 TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/etc/fstab.qcom

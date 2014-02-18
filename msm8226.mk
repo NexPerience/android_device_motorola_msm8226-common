@@ -46,6 +46,7 @@ PRODUCT_PACKAGES += \
 # HAL
 PRODUCT_PACKAGES += \
     copybit.msm8226\
+    gps.msm8226 \
     gralloc.msm8226 \
     hwcomposer.msm8226 \
     keystore.msm8226 \
@@ -76,6 +77,7 @@ PRODUCT_PACKAGES += WCNSS_qcom_wlan_factory_nv.bin
 PRODUCT_PACKAGES += \
     fstab.qcom \
     init.qcom.rc \
+    init.recovery.qcom.rc \
     init.target.rc \
     ueventd.qcom.rc
 
@@ -104,14 +106,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/config/egl.cfg:system/lib/egl/egl.cfg
 
-# Gps/location secuity configuration file
+# Sap/location secuity configuration file
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/config/gps.conf:system/etc/gps.conf \
-    $(LOCAL_PATH)/config/izat.conf:system/etc/izat.conf \
-    $(LOCAL_PATH)/config/quipc.conf:system/etc/quipc.conf \
     $(LOCAL_PATH)/config/sap.conf:system/etc/sap.conf \
-    $(LOCAL_PATH)/config/sec_config:system/etc/sec_config \
-    $(LOCAL_PATH)/config/xtwifi.conf:system/etc/xtwifi.conf
+    $(LOCAL_PATH)/config/sec_config:system/etc/sec_config
 
 # Media config
 PRODUCT_COPY_FILES += \
@@ -141,7 +139,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.qc.sdk.audio.fluencetype=fluence \
     audio.offload.buffer.size.kb=32 \
     audio.offload.gapless.enabled=true \
-    av.offload.enable=true
+    av.offload.enable=true \
+    mm.enable.smoothstreaming=true
 
 # Misc
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -156,7 +155,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.gps.qc_nlp_in_use=0 \
     persist.fuse_sdcard=true \
     ro.crypto.fuse_sdcard=true \
-    ro.nfc.port=I2C
+    ro.nfc.port=I2C \
+    ro.cwm.forbid_format="/fsg,/firmware,/persist,/modem,/boot"
 
 # Radio
 PRODUCT_PROPERTY_OVERRIDES += \
